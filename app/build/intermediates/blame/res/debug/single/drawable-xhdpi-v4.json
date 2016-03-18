@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "H:\\Android_Development\\GoDown\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_launcher.png",
+        "source": "H:\\Android_Development\\GoDown\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "H:\\Android_Development\\EllioAndroid1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_launcher.png",
+        "source": "H:\\Android_Development\\EllioAndroid1\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    }
+]

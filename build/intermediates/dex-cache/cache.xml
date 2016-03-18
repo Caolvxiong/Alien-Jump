@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="H:\Android_Development\EllioAndroid1\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\jars\libs\internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
+        <dex dex="H:\Android_Development\EllioAndroid1\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0_65530c2ecbc159357f42ef97b5fd5bb65c5b4226.jar" />
+    </item>
+    <item
+        jar="H:\AndroidSDK\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
+        <dex dex="H:\Android_Development\EllioAndroid1\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0_e016319a66761b8a78fe29d02f13e4693887999e.jar" />
+    </item>
+    <item
+        jar="H:\Android_Development\EllioAndroid1\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
+        <dex dex="H:\Android_Development\EllioAndroid1\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-20.0.0_1884c54251adb584da9bd3290cf86df8d76b918f.jar" />
+    </item>
+
+</items>

@@ -16,7 +16,7 @@
         <activity
             android:name="com.wangwenchao.godown.GameMainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="sensorLandscape"
+            android:screenOrientation="sensorPortrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -164,6 +164,11 @@ public class PlayState extends State{
 			recentTouchY = scaledY;
 			pauseButton.onTouchDown(scaledX, scaledY);
 			playButton.onTouchDown(scaledX, scaledY);
+			if (scaledX <= 400){
+				player.moveLeft();
+			} else {
+				player.moveRight();
+			}
 		}else if (e.getAction() == MotionEvent.ACTION_UP) {
 			if (gamePaused) {
 				//gamePaused = false;
@@ -187,7 +192,11 @@ public class PlayState extends State{
 				player.jump();
 			}else if (scaledY - recentTouchY > 50) {
 				player.duck();
-			}
+			}/*else if (scaledX - recentTouchY > 50) {
+				player.moveRight();
+			}else if (scaledX - recentTouchY < -50) {
+				player.moveLeft();
+			}*/
 		}
 
 		return true;

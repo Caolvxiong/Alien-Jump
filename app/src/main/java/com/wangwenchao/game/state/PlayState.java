@@ -25,9 +25,9 @@ public class PlayState extends State{
 	
 	private int playerScore = 0;
 	
-	private static final int BLOCK_HEIGHT = 50;
-	private static final int BLOCK_WIDTH = 20;
-	private int blockSpeed = -200;
+	private static final int BLOCK_HEIGHT = 20;
+	private static final int BLOCK_WIDTH = 100;
+	private int blockSpeed = -100;
 	
 	private static final int PLAYER_WIDTH = 66;
 	private static final int PLAYER_HEIGHT = 92;
@@ -49,8 +49,8 @@ public class PlayState extends State{
 		pauseButton = new UIButton(375, 10, 425, 60, Assets.pause, Assets.pause);
 		playButton = new UIButton(375, 150, 425, 200, Assets.play, Assets.play);
 		
-		for (int i = 0; i < 5; i++) {
-			Block b = new Block(i *200, GameMainActivity.GAME_HEIGHT - 95, BLOCK_WIDTH, BLOCK_HEIGHT);
+		for (int i = 0; i < 10; i++) {
+			Block b = new Block(250, i * 100, BLOCK_WIDTH, BLOCK_HEIGHT);
 			blocks.add(b);
 		}
 	}
@@ -85,7 +85,7 @@ public class PlayState extends State{
 	private void updateBlocks(float delta) {
 		for (int i = 0; i < blocks.size(); i++) {
 			Block b = blocks.get(i);
-			b.update(delta, blockSpeed);
+			b.updateY(delta, blockSpeed);
 			
 			if (b.isVisible()) {
 				if (player.isDucked() && Rect.intersects(b.getRect(), player.getDuckRect())) {

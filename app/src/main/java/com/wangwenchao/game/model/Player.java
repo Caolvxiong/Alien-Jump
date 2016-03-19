@@ -57,7 +57,7 @@ public class Player {
 			duckDuration = .6f;
 			y -= 12;
 			velY = JUMP_VELOCITY;
-			updateRects();;
+			updateRects();
 		}
 	}
 	
@@ -66,6 +66,26 @@ public class Player {
 			isDucked = true;
 		}
 	}
+
+    public void moveRight() {
+        if (isGrounded()) {
+            isDucked = false;
+            duckDuration = .6f;
+            x += 25;
+            velY = JUMP_VELOCITY;
+            updateRects();
+        }
+    }
+
+    public void moveLeft() {
+        if (isGrounded()) {
+            isDucked = false;
+            duckDuration = .6f;
+            x -= 25;
+            velY = JUMP_VELOCITY;
+            updateRects();
+        }
+    }
 
 	public boolean isGrounded() {
 		return rect.intersects(rect, ground);
@@ -80,10 +100,19 @@ public class Player {
 		rect.set((int)x, (int)y, (int)x + width, (int)y + height);
 	}
 
-	private void updateRects() {
-		rect.set((int)x + 10, (int)y, (int)x + width - 20, (int)y + height);
+	public void updateRects() {
+		rect.set((int) x + 10, (int) y, (int) x + width - 20, (int) y + height);
 		duckRect.set((int)x, (int)y + 20, (int)x + width, (int)y + height);
 	}
+
+    public void updateRects(int x, int y) {
+        rect.set(x + 10, y, x + width - 20, y + height);
+        duckRect.set(x, y + 20, x + width, y + height);
+    }
+
+    public void setVelY(int velY) {
+        this.velY = velY;
+    }
 	
 	public float getX() {
 		return x;

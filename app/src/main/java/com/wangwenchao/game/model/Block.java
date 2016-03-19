@@ -13,7 +13,7 @@ public class Block {
 	
 	private static final int UPPER_Y = 275;
 	private static final int LOWER_Y = 355;
-	
+
 	public Block(float x, float y, int width, int height) {
 		this.x = x;
 		this.y = y;
@@ -22,32 +22,30 @@ public class Block {
 		rect = new Rect((int)x, (int)y, (int)x + width, (int)y + height);
 		visible = false;
 	}
-	
-	public void update(float delta, float velX) {
-		x += velX * delta;
-		if (x <= -50) {
-			reset();
+
+	public void updateY(float delta, float velY) {
+		y += velY * delta;
+		if (y <= -50) {
+			resetX();
 		}
 		updateRect();
 	}
 
-	private void reset() {
-		visible = true;
-		if (RandomNumberGenerator.GetRandInt(3) == 0) {
-			y = UPPER_Y;
-		}else {
-			y = LOWER_Y;
-		}
-		x += 1000;
-	}
+    private void resetX() {
+        visible = true;
+        int num1 = RandomNumberGenerator.GetRandInt(8);
+		int num2 = RandomNumberGenerator.GetRandInt(5);
+        x = num1 * 100 + num2 *10;
+        y += 500;
+    }
 
 	private void updateRect() {
 		rect.set((int)x, (int)y, (int)x + width, (int)y + height);
 	}
 	
 	public void onCollide(Player p) {
-		visible = false;
-		p.pushBack(30);
+		//visible = false;
+		p.duck();
 	}
 	
 	public float getX() {

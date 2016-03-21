@@ -86,14 +86,15 @@ public class PlayState extends State{
 		for (int i = 0; i < blocks.size(); i++) {
 			Block b = blocks.get(i);
 			b.updateY(delta, blockSpeed);
-			
+            Rect blockSurface = new Rect((int)b.getX(), (int)b.getY(), BLOCK_WIDTH, 10);
+            Rect playerBottom = new Rect((int)player.getX(), (int)player.getY() + PLAYER_HEIGHT, (int)player.getX() + PLAYER_WIDTH, 10);
 			if (b.isVisible()) {
                 /*if (player.isDucked() && Rect.intersects(b.getRect(), player.getDuckRect())) {
 					b.onCollide(player);
 				}else if (!player.isDucked() && Rect.intersects(b.getRect(), player.getRect())) {
 					b.onCollide(player);
 				}*/
-                if (Rect.intersects(b.getRect(), player.getDuckRect())) {
+                if (Rect.intersects(b.getRect(), player.getRect())) {
                     player.onBoard(delta, blockSpeed);
                 }
 			}

@@ -41,7 +41,7 @@ public class PlayState extends State{
 	private String pausedString = "Game Paused. Tap to resume.";
 	@Override
 	public void init() {
-		player = new Player(160, GameMainActivity.GAME_HEIGHT - 45 -PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_HEIGHT);
+		player = new Player(160, GameMainActivity.GAME_HEIGHT - 400 -PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_HEIGHT);
 		blocks = new ArrayList<Block>();
 		cloud = new Cloud(100, 100);
 		cloud2 = new Cloud(50, 50);
@@ -50,7 +50,7 @@ public class PlayState extends State{
 		playButton = new UIButton(375, 150, 425, 200, Assets.play, Assets.play);
 		
 		for (int i = 0; i < 10; i++) {
-			Block b = new Block(250, i * 100, BLOCK_WIDTH, BLOCK_HEIGHT);
+			Block b = new Block(250, i * 120, BLOCK_WIDTH, BLOCK_HEIGHT);
 			blocks.add(b);
 		}
 	}
@@ -78,8 +78,8 @@ public class PlayState extends State{
 		cloud.update(delta);
 		cloud2.update(delta);
 		Assets.runAnim.update(delta);
-		player.update(delta);
-		updateBlocks(delta);
+        updateBlocks(delta);
+        player.update(delta);
 	}
 
 	private void updateBlocks(float delta) {
@@ -88,11 +88,14 @@ public class PlayState extends State{
 			b.updateY(delta, blockSpeed);
 			
 			if (b.isVisible()) {
-				if (player.isDucked() && Rect.intersects(b.getRect(), player.getDuckRect())) {
+                /*if (player.isDucked() && Rect.intersects(b.getRect(), player.getDuckRect())) {
 					b.onCollide(player);
 				}else if (!player.isDucked() && Rect.intersects(b.getRect(), player.getRect())) {
 					b.onCollide(player);
-				}
+				}*/
+                if (Rect.intersects(b.getRect(), player.getDuckRect())) {
+                    player.onBoard(delta, blockSpeed);
+                }
 			}
 		}
 	}

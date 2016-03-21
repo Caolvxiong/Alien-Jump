@@ -10,6 +10,8 @@ public class Block {
 	private int width, height;
 	private Rect rect;
 	private boolean visible;
+    private static float velY;
+	private static float delta;
 	
 	private static final int UPPER_Y = 275;
 	private static final int LOWER_Y = 355;
@@ -25,6 +27,8 @@ public class Block {
 
 	public void updateY(float delta, float velY) {
 		y += velY * delta;
+        this.velY = velY;
+		this.delta = delta;
 		if (y <= -50) {
 			resetX();
 		}
@@ -40,14 +44,9 @@ public class Block {
     }
 
 	private void updateRect() {
-		rect.set((int)x, (int)y, (int)x + width, (int)y + height);
+		rect.set((int) x, (int) y, (int) x + width, (int) y + height);
 	}
-	
-	public void onCollide(Player p) {
-		//visible = false;
-		p.duck();
-	}
-	
+
 	public float getX() {
 		return x;
 	}

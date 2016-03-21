@@ -168,7 +168,7 @@ public class PlayState extends State{
 			recentTouchY = scaledY;
 			pauseButton.onTouchDown(scaledX, scaledY);
 			playButton.onTouchDown(scaledX, scaledY);
-			if (scaledX <= 400){
+			if (scaledX <= player.getX()){
 				player.moveLeft();
 			} else {
 				player.moveRight();

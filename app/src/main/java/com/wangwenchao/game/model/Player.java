@@ -3,6 +3,7 @@ package com.wangwenchao.game.model;
 import android.graphics.Rect;
 
 import com.wangwenchao.godown.Assets;
+import com.wangwenchao.godown.GameMainActivity;
 
 public class Player {
     private float x, y;
@@ -76,13 +77,21 @@ public class Player {
     public void moveRight() {
         isDucked = false;
         duckDuration = .6f;
-        x += 25;
+        if(x + 25 > GameMainActivity.GAME_WIDTH - width){
+            x = GameMainActivity.GAME_WIDTH - width;
+        }else {
+            x += 25;
+        }
     }
 
     public void moveLeft() {
         isDucked = false;
         duckDuration = .6f;
-        x -= 25;
+        if (x - 25 < 0){
+            x = 0;
+        }else {
+            x -= 25;
+        }
     }
 
     public void setX(float x) {
@@ -107,6 +116,9 @@ public class Player {
     }
 
     public void updateRects() {
+        if (y < -height / 2) {
+            isAlive = false;
+        }
         rect.set((int) x + 10, (int) y, (int) x + width - 20, (int) y + height);
         duckRect.set((int) x, (int) y + 20, (int) x + width, (int) y + height);
     }

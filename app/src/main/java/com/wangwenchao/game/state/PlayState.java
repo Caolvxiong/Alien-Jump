@@ -151,7 +151,7 @@ public class PlayState extends State{
 	}
 
 	private void renderPlayer(Painter g) {
-		if (player.isGrounded()) {
+		if (player.getvelY() <= 0) {
 			if (player.isDucked()) {
 				g.drawImage(Assets.duck, (int)player.getX(), (int)player.getY());
 			}else {

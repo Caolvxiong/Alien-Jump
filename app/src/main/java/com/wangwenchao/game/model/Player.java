@@ -50,7 +50,7 @@ public class Player {
         updateRects();
     }
 
-    public void onBoard(float delta, int blockSpeed) {
+    public void moveUp(float delta, int blockSpeed) {
         velY = blockSpeed;
 
         y += velY * delta;

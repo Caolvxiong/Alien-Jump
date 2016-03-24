@@ -196,11 +196,7 @@ public class PlayState extends State{
 				player.jump();
 			}else if (scaledY - recentTouchY > 50) {
 				player.duck();
-			}/*else if (scaledX - recentTouchY > 50) {
-				player.moveRight();
-			}else if (scaledX - recentTouchY < -50) {
-				player.moveLeft();
-			}*/
+			}
 		}
 
 		return true;

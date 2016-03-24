@@ -17,6 +17,8 @@ public class Player {
     private static int jumpVelocity = -600;
     private static int accelGravity = 1000;
 
+    private Block boardSteppedOn;
+
     public Player(float x, float y, int width, int height) {
         this.x = x;
         this.y = y;
@@ -126,6 +128,14 @@ public class Player {
     public void updateRects(int x, int y) {
         rect.set(x + 10, y, x + width - 20, y + height);
         duckRect.set(x, y + 20, x + width, y + height);
+    }
+
+    public void setBoardSteppedOn(Block board){
+        this.boardSteppedOn = board;
+    }
+
+    public Block getBoardSteppedOn(){
+        return boardSteppedOn;
     }
 
     public int getJumpVelocity() {

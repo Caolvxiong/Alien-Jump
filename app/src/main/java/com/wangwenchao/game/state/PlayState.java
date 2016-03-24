@@ -1,14 +1,11 @@
 package com.wangwenchao.game.state;
 
 import java.util.ArrayList;
-import java.util.Queue;
 
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.Typeface;
-import android.os.Handler;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
 
 import com.wangwenchao.godown.Assets;
@@ -43,9 +40,6 @@ public class PlayState extends State {
 
     private boolean gamePaused = false;
     private String pausedString = "Game Paused. Tap to resume.";
-
-    private boolean onHold = false;
-
     @Override
     public void init() {
         player = new Player(160, GameMainActivity.GAME_HEIGHT - 400 - PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_HEIGHT);
@@ -178,7 +172,6 @@ public class PlayState extends State {
                 player.moveRight();
             }
         } else if (e.getAction() == MotionEvent.ACTION_UP) {
-            onHold = false;
             if (gamePaused) {
                 if (playButton.isPressed(scaledX, scaledY)) {
                     playButton.cancel();
@@ -200,15 +193,8 @@ public class PlayState extends State {
                 player.jump();
             } else if (scaledY - recentTouchY > 50) {
                 player.duck();
-            }/*else if (scaledX - recentTouchY > 50) {
-                player.moveRight();
-			}else if (scaledX - recentTouchY < -50) {
-				player.moveLeft();
-			}*/
-        } else if (e.getAction() == MotionEvent.ACTION_MOVE) {
-
+            }
         }
-
         return true;
     }
 

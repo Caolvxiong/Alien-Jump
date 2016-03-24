@@ -40,7 +40,7 @@ MERGED from [com.android.support:support-v4:20.0.0] H:\Android_Development\GoDow
 activity#com.wangwenchao.godown.GameMainActivity
 ADDED from H:\Android_Development\GoDown\app\src\main\AndroidManifest.xml:16:9-25:14
 	android:screenOrientation
-		ADDED from H:\Android_Development\GoDown\app\src\main\AndroidManifest.xml:17:13-55
+		ADDED from H:\Android_Development\GoDown\app\src\main\AndroidManifest.xml:17:13-56
 	android:label
 		ADDED from H:\Android_Development\GoDown\app\src\main\AndroidManifest.xml:19:13-45
 	android:theme

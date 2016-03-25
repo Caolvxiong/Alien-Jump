@@ -14,10 +14,8 @@ public class Player {
     private boolean isDucked;
     private float duckDuration = .6f;
 
-    private static int jumpVelocity = -600;
-    private static int accelGravity = 1000;
-
-    private Block boardSteppedOn;
+    private static final int JUMP_VELOCITY = -600;
+    private static final int ACCEL_GRAVITY = 1000;
 
     public Player(float x, float y, int width, int height) {
         this.x = x;
@@ -25,7 +23,7 @@ public class Player {
         this.width = width;
         this.height = height;
 
-        ground = new Rect(0, 405, 0 + 800, 45 + 405);
+        //ground = new Rect(0, 405, 0 + 800, 45 + 405);
         rect = new Rect();
         duckRect = new Rect();
         isAlive = true;
@@ -42,7 +40,7 @@ public class Player {
         }
 
         if (!isGrounded()) {
-            velY += accelGravity * delta;
+            velY += ACCEL_GRAVITY * delta;
         } else {
             y = 406 - height;
             velY = 0;
@@ -65,7 +63,7 @@ public class Player {
             isDucked = false;
             duckDuration = .6f;
             y -= 12;
-            velY = jumpVelocity;
+            velY = JUMP_VELOCITY;
             updateRects();
         }
     }
@@ -105,7 +103,8 @@ public class Player {
     }
 
     public boolean isGrounded() {
-        return rect.intersects(rect, ground);
+        return false;
+       //return rect.intersects(rect, ground);
     }
 
     public void pushBack(int dX) {
@@ -118,7 +117,7 @@ public class Player {
     }
 
     public void updateRects() {
-        if (y < -height / 2) {
+        if (y < -height / 2/* || y > GameMainActivity.GAME_HEIGHT*/) {
             isAlive = false;
         }
         rect.set((int) x + 10, (int) y, (int) x + width - 20, (int) y + height);
@@ -128,30 +127,6 @@ public class Player {
     public void updateRects(int x, int y) {
         rect.set(x + 10, y, x + width - 20, y + height);
         duckRect.set(x, y + 20, x + width, y + height);
-    }
-
-    public void setBoardSteppedOn(Block board){
-        this.boardSteppedOn = board;
-    }
-
-    public Block getBoardSteppedOn(){
-        return boardSteppedOn;
-    }
-
-    public int getJumpVelocity() {
-        return jumpVelocity;
-    }
-
-    public void setJumpVelocity(int jumpVelocity) {
-        this.jumpVelocity = jumpVelocity;
-    }
-
-    public int getAccelGravity() {
-        return accelGravity;
-    }
-
-    public void setAccelGravity(int accelGravity) {
-        this.accelGravity = accelGravity;
     }
 
     public float getX() {

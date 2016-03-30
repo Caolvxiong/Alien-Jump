@@ -38,9 +38,9 @@ public class GameOverState extends State {
 		g.fillRect(0, 0, GameMainActivity.GAME_WIDTH, GameMainActivity.GAME_HEIGHT);
 		g.setColor(Color.DKGRAY);
 		g.setFont(Typeface.DEFAULT_BOLD, 50);
-		g.drawString(gameOverMessage, 257, 175);
-		g.drawString(playScore, 385, 250);
-		g.drawString("Touch the screen", 220, 350);
+		g.drawString(gameOverMessage, 80, 275);
+		g.drawString(playScore, 200, 360);
+		g.drawString("Touch the screen", 30, 450);
 	}
 
 	@Override

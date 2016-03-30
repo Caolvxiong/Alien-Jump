@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.WindowManager;
 
 public class GameMainActivity extends Activity{
-	public static final int GAME_WIDTH = 800;
-	public static final int GAME_HEIGHT = 450;
+	public static final int GAME_WIDTH = 450;
+	public static final int GAME_HEIGHT = 800;
 	public static GameView sGame;
 	public static AssetManager assets;
 	

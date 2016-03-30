@@ -15,7 +15,7 @@ public class Player {
     private float duckDuration = .6f;
 
     private static final int JUMP_VELOCITY = -600;
-    private static final int ACCEL_GRAVITY = 1000;
+    private static final int ACCEL_GRAVITY = 900;
 
     public Player(float x, float y, int width, int height) {
         this.x = x;
@@ -117,7 +117,7 @@ public class Player {
     }
 
     public void updateRects() {
-        if (y < -height / 2/* || y > GameMainActivity.GAME_HEIGHT*/) {
+        if (y < -height / 2 || y > GameMainActivity.GAME_HEIGHT) {
             isAlive = false;
         }
         rect.set((int) x + 10, (int) y, (int) x + width - 20, (int) y + height);

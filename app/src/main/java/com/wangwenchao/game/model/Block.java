@@ -10,8 +10,6 @@ public class Block {
 	private int width, height;
 	private Rect rect;
 	private boolean visible;
-    private static float velY;
-	private static float delta;
 	
 	private static final int UPPER_Y = 275;
 	private static final int LOWER_Y = 355;
@@ -27,8 +25,6 @@ public class Block {
 
 	public void updateY(float delta, float velY) {
 		y += velY * delta;
-        this.velY = velY;
-		this.delta = delta;
 		if (y <= -50) {
 			resetX();
 		}
@@ -37,10 +33,10 @@ public class Block {
 
     private void resetX() {
         visible = true;
-        int num1 = RandomNumberGenerator.GetRandInt(8);
-		int num2 = RandomNumberGenerator.GetRandInt(5);
+        int num1 = RandomNumberGenerator.GetRandInt(4);
+		int num2 = RandomNumberGenerator.GetRandInt(9);
         x = num1 * 100 + num2 *10;
-        y += 500;
+        y += 820;
     }
 
 	private void updateRect() {

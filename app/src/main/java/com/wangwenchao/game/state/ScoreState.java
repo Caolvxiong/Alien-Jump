@@ -27,11 +27,11 @@ public class ScoreState extends State{
 		g.fillRect(0, 0, GameMainActivity.GAME_WIDTH, GameMainActivity.GAME_HEIGHT);
 		g.setColor(Color.WHITE);
 		g.setFont(Typeface.DEFAULT_BOLD, 50);
-		g.drawString("The All-Time High Score", 120, 175);
+		g.drawString("The Highest Score", 20, 275);
 		g.setFont(Typeface.DEFAULT_BOLD, 70);
-		g.drawString(highScore, 370, 260);
+		g.drawString(highScore, 200, 360);
 		g.setFont(Typeface.DEFAULT_BOLD, 50);
-		g.drawString("Touch the screen", 220, 350);
+		g.drawString("Touch the screen", 30, 450);
 	}
 
 	@Override

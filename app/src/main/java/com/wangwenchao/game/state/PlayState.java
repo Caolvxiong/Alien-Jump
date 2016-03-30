@@ -42,7 +42,7 @@ public class PlayState extends State {
     private String pausedString = "Game Paused. Tap to resume.";
     @Override
     public void init() {
-        player = new Player(160, GameMainActivity.GAME_HEIGHT - 400 - PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_HEIGHT);
+        player = new Player(210, GameMainActivity.GAME_HEIGHT - 700 - PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_HEIGHT);
         blocks = new ArrayList<Block>();
         cloud = new Cloud(100, 100);
         cloud2 = new Cloud(50, 50);
@@ -51,7 +51,7 @@ public class PlayState extends State {
         playButton = new UIButton(375, 150, 425, 200, Assets.play, Assets.play);
 
         for (int i = 0; i < 10; i++) {
-            Block b = new Block(250, i * 100, BLOCK_WIDTH, BLOCK_HEIGHT);
+            Block b = new Block(150, i * 120, BLOCK_WIDTH, BLOCK_HEIGHT);
             blocks.add(b);
         }
     }
@@ -106,7 +106,7 @@ public class PlayState extends State {
         renderBlocks(g);
         renderSun(g);
         renderClouds(g);
-        g.drawImage(Assets.grass, 0, 405);
+        //g.drawImage(Assets.grass, 0, 405);
         renderScore(g);
         pauseButton.render(g);
 
@@ -133,9 +133,9 @@ public class PlayState extends State {
 
     private void renderSun(Painter g) {
         g.setColor(Color.rgb(255, 165, 0));
-        g.fillOval(715, -85, 170, 170);
+        g.fillOval(365, -85, 170, 170);
         g.setColor(Color.YELLOW);
-        g.fillOval(725, -75, 150, 150);
+        g.fillOval(375, -75, 150, 150);
     }
 
     private void renderBlocks(Painter g) {

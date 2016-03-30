@@ -15,8 +15,8 @@ public class MenuState extends State{
 
 	@Override
 	public void init() {
-		playButton = new UIButton(316, 227, 484, 286, Assets.start, Assets.startDown);
-		scoreButton = new UIButton(316, 300, 484, 359, Assets.score, Assets.scoreDown);
+		playButton = new UIButton(145, 427, 313, 486, Assets.start, Assets.startDown);
+		scoreButton = new UIButton(145, 500, 313, 559, Assets.score, Assets.scoreDown);
 		muteButton = new UIButton(0, 0, 50, 48, Assets.musicOn,
 				Assets.musicOff);
 		unmuteButton = new UIButton(0, 0, 50, 48, Assets.musicOff,

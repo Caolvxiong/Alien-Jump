@@ -72,7 +72,7 @@ public class PlayState extends State {
         }
         playerScore += 1;
 
-        if (playerScore % 500 == 0 && blockSpeed > -280) {
+        if (playerScore % 500 == 0 && blockSpeed > -580) {
             blockSpeed -= 10;
         }
 

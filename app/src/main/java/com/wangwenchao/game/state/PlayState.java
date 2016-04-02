@@ -40,6 +40,8 @@ public class PlayState extends State {
 
     private boolean gamePaused = false;
     private String pausedString = "Game Paused. Tap to resume.";
+
+    public static int direction = 0;//0 for left, 1 for right.
     @Override
     public void init() {
         player = new Player(210, GameMainActivity.GAME_HEIGHT - 700 - PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_HEIGHT);
@@ -78,7 +80,11 @@ public class PlayState extends State {
 
         cloud.update(delta);
         cloud2.update(delta);
-        Assets.runAnim.update(delta);
+        if (direction == 1){
+            Assets.runAnim.update(delta);
+        } else {
+            Assets.runLeftAnim.update(delta);
+        }
         updateBlocks(delta);
         player.update(delta);
     }
@@ -148,14 +154,26 @@ public class PlayState extends State {
     }
 
     private void renderPlayer(Painter g) {
-        if (player.getvelY() <= 0) {
-            if (player.isDucked()) {
-                g.drawImage(Assets.duck, (int) player.getX(), (int) player.getY());
+        if (direction == 1) {
+            if (player.getvelY() <= 0) {
+                if (player.isDucked()) {
+                    g.drawImage(Assets.duck, (int) player.getX(), (int) player.getY());
+                } else {
+                    Assets.runAnim.render(g, (int) player.getX(), (int) player.getY(), player.getWidth(), player.getHeight());
+                }
             } else {
-                Assets.runAnim.render(g, (int) player.getX(), (int) player.getY(), player.getWidth(), player.getHeight());
+                g.drawImage(Assets.jump, (int) player.getX(), (int) player.getY(), player.getWidth(), player.getHeight());
             }
         } else {
-            g.drawImage(Assets.jump, (int) player.getX(), (int) player.getY(), player.getWidth(), player.getHeight());
+            if (player.getvelY() <= 0) {
+                if (player.isDucked()) {
+                    g.drawImage(Assets.duckLeft, (int) player.getX(), (int) player.getY());
+                } else {
+                    Assets.runLeftAnim.render(g, (int) player.getX(), (int) player.getY(), player.getWidth(), player.getHeight());
+                }
+            } else {
+                g.drawImage(Assets.jumpLeft, (int) player.getX(), (int) player.getY(), player.getWidth(), player.getHeight());
+            }
         }
     }
 

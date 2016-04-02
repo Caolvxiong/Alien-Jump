@@ -18,9 +18,10 @@ import android.media.SoundPool;
 public class Assets {
 	
 	private static SoundPool soundPool;
-	public static Bitmap welcome, block, cloud1, cloud2, duck, grass, jump, run1, run2, run3, run4, run5, 
-							scoreDown, score, startDown, start, pause, play, musicOn, musicOff;
-	public static Animation runAnim;
+	public static Bitmap welcome, block, cloud1, cloud2, duck, grass, jump, run1, run2, run3, run4, run5,
+            runLeft1, runLeft2, runLeft3, runLeft4, runLeft5, duckLeft, jumpLeft,
+            scoreDown, score, startDown, start, pause, play, musicOn, musicOff;
+	public static Animation runAnim, runLeftAnim;
 	
 	private static MediaPlayer mediaPlayer;
 	
@@ -32,13 +33,20 @@ public class Assets {
 		cloud1 = loadBitmap("cloud1.png", true);
 		cloud2 = loadBitmap("cloud2.png", true);
 		duck = loadBitmap("duck.png", true);
+        duckLeft = loadBitmap("duckLeft.png", true);
 		grass = loadBitmap("grass.png", false);
 		jump = loadBitmap("jump.png", true);
+        jumpLeft = loadBitmap("jumpLeft.png", true);
 		run1 = loadBitmap("run_anim1.png", true);
 		run2 = loadBitmap("run_anim2.png", true);
 		run3 = loadBitmap("run_anim3.png", true);
 		run4 = loadBitmap("run_anim4.png", true);
 		run5 = loadBitmap("run_anim5.png", true);
+        runLeft1 = loadBitmap("run_anim1_left.png", true);
+        runLeft2 = loadBitmap("run_anim2_left.png", true);
+        runLeft3 = loadBitmap("run_anim3_left.png", true);
+        runLeft4 = loadBitmap("run_anim4_left.png", true);
+        runLeft5 = loadBitmap("run_anim5_left.png", true);
 		scoreDown = loadBitmap("score_button_down.png", true);
 		score = loadBitmap("score_button.png", true);
 		startDown = loadBitmap("start_button_down.png", true);
@@ -53,9 +61,16 @@ public class Assets {
 		Frame f3 = new Frame(run3, .1f);
 		Frame f4 = new Frame(run4, .1f);
 		Frame f5 = new Frame(run5, .1f);
+
+        Frame f1Left = new Frame(runLeft1, .1f);
+        Frame f2Left = new Frame(runLeft2, .1f);
+        Frame f3Left = new Frame(runLeft3, .1f);
+        Frame f4Left = new Frame(runLeft4, .1f);
+        Frame f5Left = new Frame(runLeft5, .1f);
 		
 		runAnim = new Animation(f1, f2, f3, f4, f5, f3, f2);
-		
+
+		runLeftAnim = new Animation(f1Left, f2Left, f3Left, f4Left, f5Left, f3Left, f2Left);
 	}
 	
 	public static void onResume() {

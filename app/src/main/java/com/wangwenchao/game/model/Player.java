@@ -2,6 +2,7 @@ package com.wangwenchao.game.model;
 
 import android.graphics.Rect;
 
+import com.wangwenchao.game.state.PlayState;
 import com.wangwenchao.godown.Assets;
 import com.wangwenchao.godown.GameMainActivity;
 
@@ -14,8 +15,8 @@ public class Player {
     private boolean isDucked;
     private float duckDuration = .6f;
 
-    private static final int JUMP_VELOCITY = -600;
-    private static final int ACCEL_GRAVITY = 900;
+    private static final int JUMP_VELOCITY = -400;
+    private static final int ACCEL_GRAVITY = 800;
 
     public Player(float x, float y, int width, int height) {
         this.x = x;
@@ -39,12 +40,7 @@ public class Player {
             duckDuration = .6f;
         }
 
-        if (!isGrounded()) {
-            velY += ACCEL_GRAVITY * delta;
-        } else {
-            y = 406 - height;
-            velY = 0;
-        }
+        velY += ACCEL_GRAVITY * delta;
 
         y += velY * delta;
         updateRects();
@@ -58,38 +54,36 @@ public class Player {
     }
 
     public void jump() {
-        if (isGrounded()) {
-            Assets.playSound(Assets.onJumpID);
-            isDucked = false;
-            duckDuration = .6f;
-            y -= 12;
-            velY = JUMP_VELOCITY;
-            updateRects();
-        }
+        Assets.playSound(Assets.onJumpID);
+        isDucked = false;
+        duckDuration = .6f;
+        y -= 12;
+        velY = JUMP_VELOCITY;
+        updateRects();
     }
 
     public void duck() {
-        if (isGrounded()) {
-            isDucked = true;
-        }
+        isDucked = true;
     }
 
     public void moveRight() {
+        PlayState.direction = 1;
         isDucked = false;
         duckDuration = .6f;
-        if(x + 25 > GameMainActivity.GAME_WIDTH - width){
+        if (x + 25 > GameMainActivity.GAME_WIDTH - width) {
             x = GameMainActivity.GAME_WIDTH - width;
-        }else {
+        } else {
             x += 25;
         }
     }
 
     public void moveLeft() {
+        PlayState.direction = 0;
         isDucked = false;
         duckDuration = .6f;
-        if (x - 25 < 0){
+        if (x - 25 < 0) {
             x = 0;
-        }else {
+        } else {
             x -= 25;
         }
     }
@@ -104,7 +98,7 @@ public class Player {
 
     public boolean isGrounded() {
         return false;
-       //return rect.intersects(rect, ground);
+        //return rect.intersects(rect, ground);
     }
 
     public void pushBack(int dX) {

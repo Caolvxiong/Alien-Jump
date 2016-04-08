@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "com.wangwenchao.godown"
-        minSdkVersion 11
-        targetSdkVersion 21
+        minSdkVersion 14
+        targetSdkVersion 23
     }
 
     buildTypes {

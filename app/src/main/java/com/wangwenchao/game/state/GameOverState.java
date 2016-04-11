@@ -23,7 +23,6 @@ public class GameOverState extends State {
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override

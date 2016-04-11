@@ -29,7 +29,7 @@ public class ScoreState extends State{
 		g.setFont(Typeface.DEFAULT_BOLD, 50);
 		g.drawString("The Highest Score", 20, 275);
 		g.setFont(Typeface.DEFAULT_BOLD, 70);
-		g.drawString(highScore, 200, 360);
+		g.drawString(highScore, 180, 360);
 		g.setFont(Typeface.DEFAULT_BOLD, 50);
 		g.drawString("Touch the screen", 30, 450);
 	}

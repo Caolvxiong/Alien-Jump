@@ -44,6 +44,7 @@ public class PlayState extends State {
     public static int direction = 0;//0 for left, 1 for right.
     @Override
     public void init() {
+        GameMainActivity.hideBanner();
         player = new Player(210, GameMainActivity.GAME_HEIGHT - 700 - PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_HEIGHT);
         blocks = new ArrayList<Block>();
         cloud = new Cloud(100, 100);

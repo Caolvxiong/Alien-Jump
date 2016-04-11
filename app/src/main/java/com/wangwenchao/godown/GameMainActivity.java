@@ -132,6 +132,12 @@ public class GameMainActivity extends Activity {
     }
 
     @Override
+    protected void onRestart() {
+        super.onRestart();
+        showBanner();
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
         Assets.onPause();

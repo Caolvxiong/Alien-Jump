@@ -1,20 +1,20 @@
 package com.wangwenchao.game.state;
 
-import java.util.ArrayList;
-
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.view.MotionEvent;
 
-import com.wangwenchao.godown.Assets;
-import com.wangwenchao.godown.GameMainActivity;
 import com.wangwenchao.framework.util.Painter;
 import com.wangwenchao.framework.util.UIButton;
 import com.wangwenchao.game.model.Block;
 import com.wangwenchao.game.model.Cloud;
 import com.wangwenchao.game.model.Player;
+import com.wangwenchao.godown.Assets;
+import com.wangwenchao.godown.GameMainActivity;
+
+import java.util.ArrayList;
 
 
 public class PlayState extends State {
@@ -96,7 +96,7 @@ public class PlayState extends State {
             b.updateY(delta, blockSpeed);
             if (b.isVisible()) {
                 //Check collision first.
-                if (Rect.intersects(b.getRect(), player.getRect())) {
+                if (Rect.intersects(b.getRect(), player.getRect()) || Rect.intersects(player.getRect(), b.getRect())) {
                     if (player.getY() + PLAYER_HEIGHT < b.getY() + BLOCK_HEIGHT) {
                         player.moveUp(delta, blockSpeed);
                     }

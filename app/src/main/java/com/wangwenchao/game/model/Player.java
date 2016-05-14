@@ -42,6 +42,9 @@ public class Player {
 
         velY += ACCEL_GRAVITY * delta;
 
+        if(velY > 600){
+            velY = 600;
+        }
         y += velY * delta;
         updateRects();
     }
